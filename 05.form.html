@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 디자인</title>
+    <style>
+        /* 
+            → 방향은 inline
+            ↓ 방향은 block 
+        */
+        /* 
+            button과 input창의 폭을 똑같이 해도 크기가 다른 이유
+            button과 input창의 box-sizing 기본 값이 다르기 때문
+            그래서 box-sizing을 맞춰줘야 폭을 똑같이 맞출 수 있다.
+
+        */
+        /* 
+            *{
+                
+            }
+            모든 곳에 설정을 해주겠다
+        */
+        * {
+            box-sizing: border-box;
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+        }
+        form{
+            text-align: center;
+        }
+        input{
+            display: block;
+            width: 350px;
+            font-family:sans-serif;
+            font-size: 20px;
+            padding: 0.25em;
+            margin: 15px 0px;
+        }
+        button{
+            display: block;
+            width: 350px;
+            font-family:sans-serif;
+            font-size: 20px;
+            padding: 0.25em;
+            margin: 15px 0px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- div는 디자인을 위한 투명 영역 -->
+    <div class="container">
+        <form action="#" method="post">
+            <h1>login</h1>
+            <input type="text" name="email" placeholder="이메일">
+            <input type="password" name="password" placeholder="비밀번호">
+            <button>login</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        
+    }
+
+    .img{
+        display: block;
+        width: 300px;
+        height: 60px;
+        
+        margin: auto;
+    
+        
+    }
+    .form-item{
+        display: block;
+        width: 500px;
+        font-size: 20px;
+        padding: 0.5em;
+    }
+    .form-input{
+        margin: 20px 0px;
+        border-color: rgb(218,218,218);
+        border-style: solid;
+    }
+
+    .form-button{
+        background-color: rgb(31,188,2);
+        color: white;
+        border: none;
+        height: 50px;
+    }
+    #check{
+        font-size: 20px;
+        margin: 10px 0px;
+    }
+</style>
+<body>
+    <div class="container">
+        <form action="login" method="post" autocomplete="off">
+            <img class="img" src="/images/naver.png">
+            <input class="form-item form-input" type="text" name="email" placeholder="아이디">
+            <input class="form-item form-input" type="password" name="password" placeholder="비밀번호">
+        
+            <button class="form-item form-button">로그인</button>
+            <input id="check" type="checkbox"> 로그인 상태 유지
+        </form>
+    </div>
+</body>
+</html>

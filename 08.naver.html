@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        
+    }
+
+    #img{
+        display: block;
+        width: 300px;
+        height: 60px;
+        
+        margin: auto;
+    
+        
+    }
+    #email-input{
+        display: block;
+        width: 500px;
+        font-size: 20px;
+        margin: 20px 0px;
+        padding: 0.5em;
+        border-color: rgb(218,218,218);
+        border-style: solid;
+    }
+    #pw-input{
+        display: block;
+        width: 500px;
+        font-size: 20px;
+        margin: 10px 0px;
+        padding: 0.5em;
+        border-color: rgb(218,218,218);
+        border-style: solid;
+    }
+    #btn{
+        display: block;
+        width: 500px;
+        font-size: 20px;
+        background-color: rgb(31,188,2);
+        color: white;
+        border: none;
+        height: 50px;
+        padding: 0.5em;
+    }
+    #check{
+        font-size: 20px;
+        margin: 10px 0px;
+    }
+</style>
+<body>
+    <div class="container">
+        <form action="login" method="post" autocomplete="off">
+            <img id="img" src="/images/naver.png">
+            <input id="email-input" type="text" name="email" placeholder="아이디">
+            <input id="pw-input" type="password" name="password" placeholder="비밀번호">
+        
+            <button id="btn">로그인</button>
+            <input id="check" type="checkbox"> 로그인 상태 유지
+        </form>
+    </div>
+</body>
+</html>

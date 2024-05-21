@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS실습</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <!-- <link rel="stylesheet" type="text/css" href="test.css"> -->
+    <style>
+        .btn{
+            font-weight: bold;
+            border-color: #7091F5;
+            background-color:#7091F5;
+            color: white;
+        }
+        .btn:hover{
+            filter : brightness(90%);
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" autocomplete="off">
+        <div class="container w-400">
+            <div class="row">
+                <img src="./images/instagram.png" width="250">
+            </div>
+            <div class="row">
+                <input type="text" name="email" class="form-input w-100" placeholder="이메일"> 
+            </div>
+            <div class="row">
+                <input type="password" name="password" class="form-input w-100" placeholder="비밀번호">
+            </div>
+            <div class="row">
+                <button class="btn w-100">로그인</button>
+            </div>
+            <div class="row">
+                <hr>
+            </div>
+            <div class="row">
+                <a href="#">비밀번호를 잊으셨나요?</a>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠팡</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <!-- <link rel="stylesheet" type="text/css" href="test.css"> -->
+    <style>
+        .form-input.form-image{
+        /* background-image: url("./images/emailicon.png"); */
+        background-size: 1em;
+        background-repeat: no-repeat;
+        padding-left: 2em;
+        background-position-x:0.35em ;
+        /* background-position-y:50% ; */
+        background-position-y:center ;
+        }
+        [name=email]{
+            background-image: url("./images/emailicon.png");
+        }
+        [name=password]{
+            background-image: url("./images/lock.png");
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post" autocomplete="off">
+        <div  class="container w-400">
+            <div class="row">
+            <h2>
+                <span style="color: rgb(142,87,39);" >c</span><span style="color: rgb(142,87,39);">o</span><span style="color: rgb(142,87,39);">u</span><span style="color: rgb(247,85,47);">p</span><span style="color: rgb(255,96,0);">a</span><span style="color: rgb(136,204,47);">n</span><span style="color: rgb(49,180,221);">g</span>
+            </h2>
+            </div>
+            <div class="row">
+                <input type="text" name="email"class="form-input form-image w-100"
+                placeholder="이메일">
+            </div>
+            <div class="row">
+                <input type="password" name="password" class="form-input form-image w-100"
+                placeholder="비밀번호">
+            </div>
+            <div class="row mt-20">
+                <button class="btn btn-positive w-100">로그인</button>
+            </div>
+            <hr>
+            <div class="row">
+                <button class="btn w-100">회원가입</button>
+            </div>
+
+        </div>
+
+    </form>
+</body>
+</html>

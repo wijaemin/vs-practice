@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a 태그</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+        /* a 태그는 기본적으로 display가 inline이다.
+           inline은 폭을 설정할 수 없다(내용에 의해 자동설정)
+
+           방향은 유지하면서 크기 설정이 가능하도록
+           display를 inline-block으로 변경한다
+        */
+
+        #test{
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            border: 1px solid black;
+            font-size: 20px;
+            padding: 0.5em 1em;
+            border-radius: 0.1em;
+            line-height: 1.2em;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>A태그 개조하기</h1>
+        </div>
+        <div class="row">
+            <a href="#" id="test">일반 링크</a>
+            <a href="#" class="btn">버튼 링크</a>
+            <a href="#" class="btn btn-positive">일반 버튼</a>
+        </div>
+        <div class="row"></div>
+    </div>
+    
+</body>
+</html>

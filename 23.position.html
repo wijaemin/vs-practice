@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지션</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h2>포지션 이해하기</h2>
+        </div>
+        <div class="row left">
+            기본 상태는 static이며, 배치 시 작성 순서대로 배치된다.<br>
+            한 번 정해진 위치는 절대로 변경할 수 없다.
+            
+        </div>
+        <div class="row left">
+            <img style="position: static;" src="https://picsum.photos/id/1/100/100" width="100" height="100">
+            <img style="position: static;" src="https://picsum.photos/id/2/100/100" width="100" height="100">
+            <img style="position: static;" src="https://picsum.photos/id/3/100/100" width="100" height="100">
+        </div>
+        <div class="row left">
+            만약  position을 relative로 바꾸면 배치는 그대로지만
+            이제부터 위치조정이 가능하다.<br>
+            top, left, right, bottom과 z-index 속성으로 제어가 가능
+        </div>
+        <div class="row left">
+            <img style="position: relative; top:10px" src="https://picsum.photos/id/4/100/100" width="100" height="100">
+            <img style="position: relative;left: 50px;" src="https://picsum.photos/id/5/100/100" width="100" height="100">
+            <img style="position: relative; z-index: 5;" src="https://picsum.photos/id/6/100/100" width="100" height="100">
+        </div>
+        <div class="row left">
+            position이 absolute라면 좌표를 이용하여 위치를 지정할 수 있다.<br>
+            기존에 존재하는 화면 위를 덮으며 배치된다(overlay라 부름)<br>
+            z-index 속성을 통해 같은 absolute 끼리의 우선순위를 정할 수 있다<br>
+            top, left, right, bottom 속성으로 위치 설정이 가능
+
+        </div>
+        <div class="row left">
+            <img style="position: absolute;bottom: 100px; right: 100px; z-index: 2;" src="https://picsum.photos/id/7/100/100" width="100" height="100">
+            <img style="position: absolute;bottom: 150px; right: 150px; z-index: 3;" src="https://picsum.photos/id/8/100/100" width="100" height="100">
+            <img style="position: absolute;bottom: 200px; right: 200px; z-index: 4;" src="https://picsum.photos/id/9/100/100" width="100" height="100">
+        </div>
+        <div class="row left">
+            position이 fixed라면 뷰포트(Viewport)를 기준으로 위치를 설정할 수 있다.<br>
+            따라서 문서가 이동해도 fixed로 설정된 위치는 변하지 않는다<br>
+            흔히 말하는 사용자를 따라오는 요쇼들을 구현 할 수있다
+        </div>
+        <div class="row left">
+            <img style="position:fixed;bottom: 100px; left: 100px; z-index: 2;" src="https://picsum.photos/id/10/100/100" width="100" height="100">
+            <img style="position:fixed;bottom: 150px; left: 150px; z-index: 3;" src="https://picsum.photos/id/11/100/100" width="100" height="100">
+            <img style="position:fixed;bottom: 200px; left: 200px; z-index: 4;" src="https://picsum.photos/id/12/100/100" width="100" height="100">
+        </div>
+    </div>
+    
+</body>
+</html>

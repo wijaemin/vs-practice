@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지션 연습 2</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>position: absolute 심화</h1>
+        </div>
+        <div class="row left">
+            absolute는 기준이 주어질 경우 해당 기준 내에서 위치 설정이 가능하다<br>
+            기준이 없으면 문서(html)를 기준으로 위치를 설정<br>
+            기준이라 함은 absolute에서 가장 가까운 
+            relative, absolute, fixed 중 하나를 의미<br>
+        </div>
+        <div class="row" style="position:relative;height:250px">
+            <button class="btn position-center">버튼</button>
+            <button class="btn" style="position: absolute; top:10px;left: 10px;">버튼2</button>
+            <button class="btn" style="position: absolute; bottom: 0px;right: 100%;">버튼3</button>
+            <button class="btn" style="position: absolute; top: 0px;left: 100%;">버튼4</button>
+            <button class="btn" style="position: absolute; bottom: 0px;right:0px;">버튼5</button>
+        </div>
+    </div>
+</body>
+</html>

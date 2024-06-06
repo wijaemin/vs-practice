@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS실습</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+        /* .backdrop > .modal {
+            background-color: white;
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            top:50%;
+            left:50%;
+            margin-top: -50px;
+            margin-left: -50px;
+        } */
+        /* .backdrop > .modal {
+        background-color: white;
+        position: fixed;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        } */
+        /* .backdrop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .backdrop > .modal {
+            background-color: white;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>Lorem ipsum</h1>
+        </div>
+        <div class="row left">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique porta dolor eget dapibus. Donec eu imperdiet
+            dui, sed hendrerit lacus. Nulla id placerat ex. Etiam sed suscipit odio. Nullam non rutrum quam. Curabitur vel orci eu
+            lorem iaculis gravida interdum in tellus. Quisque cursus justo est, quis luctus magna semper id. Vivamus posuere elit
+            metus, vitae accumsan dui bibendum varius. Etiam purus felis, condimentum vel fringilla at, vehicula a leo. Integer
+            molestie turpis vel enim venenatis, et luctus lacus imperdiet. Donec a nunc congue, laoreet dolor sit amet, euismod ex.
+            Nullam pellentesque ante vitae turpis gravida, in viverra purus dictum. Donec efficitur ipsum vulputate dapibus
+            accumsan. Quisque ut orci ex. Aenean consectetur maximus nisl, in efficitur ligula scelerisque id.
+            
+            Cras vitae lorem ullamcorper, bibendum sapien quis, viverra sem. Sed eget pellentesque neque. In volutpat auctor
+            condimentum. Fusce id fringilla justo. Curabitur iaculis ex eget leo cursus, nec bibendum mi lacinia. Fusce ultricies,
+            felis ut tristique gravida, nulla ligula consectetur tellus, et dapibus lorem sapien in lectus. Aenean volutpat orci
+            augue, non consequat nulla ultricies auctor. In sem felis, molestie eget dictum vel, iaculis at mi. Ut egestas maximus
+            turpis vel tristique. Pellentesque ullamcorper ornare porta. Mauris mattis ultricies orci, vitae imperdiet lorem lacinia
+            nec. Donec pulvinar sagittis est a bibendum.
+            
+            Integer fermentum tristique eros sit amet viverra. Vivamus eu euismod purus, ut vestibulum nisi. Phasellus sodales
+            scelerisque iaculis. Aenean dapibus elit vitae tortor tristique, eleifend bibendum ex convallis. Nullam in lobortis
+            nisl, eu rutrum mi. Nullam at sem non dui viverra efficitur. Nullam et libero sollicitudin, congue elit tincidunt,
+            facilisis tortor. In luctus sed mauris eu ultrices. Vivamus porttitor dignissim leo, id tincidunt dui mattis sed. Ut
+            pharetra, tellus in fermentum pellentesque, ante nunc rhoncus quam, vitae tincidunt diam massa sit amet erat. Curabitur
+            volutpat scelerisque risus quis ornare. Duis sit amet euismod urna. Duis commodo leo condimentum, finibus leo non,
+            efficitur diam. Maecenas dignissim leo tincidunt risus vestibulum, quis rutrum urna malesuada.
+            
+            Morbi tristique, odio eget finibus porta, lacus leo efficitur urna, vel porttitor ligula turpis malesuada nisi.
+            Curabitur a orci id velit imperdiet ultricies ac quis metus. Suspendisse et iaculis ligula, vitae scelerisque massa.
+            Proin suscipit mauris at ante consequat tincidunt. Nulla nec faucibus dolor, in elementum metus. Vestibulum blandit sem
+            id enim facilisis, vitae eleifend lacus facilisis. Proin ullamcorper nunc id elit euismod placerat. Pellentesque nec
+            elementum magna.
+            
+            Vestibulum id varius odio. Donec ac felis nec leo convallis cursus id vitae eros. In aliquam ex et rutrum semper.
+            Maecenas eu nunc non nunc mattis ornare id sed est. Ut tincidunt libero libero. Duis ac odio ex. Ut sollicitudin enim
+            metus, sed varius turpis ultrices sed. Donec quis laoreet ligula. Phasellus ac sem at augue rhoncus eleifend. Maecenas
+            ac dolor id eros blandit tincidunt vitae quis purus.
+            
+            Donec luctus facilisis felis, id pharetra ex varius non. Sed sit amet nisi consequat, lobortis mauris in, convallis
+            nisi. Nulla porta non felis in semper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+            turpis egestas. Ut nec massa molestie, malesuada est sed, ornare diam. Donec vitae libero nec sem pharetra lobortis vel
+            non orci. Duis mattis viverra odio at egestas. Maecenas pharetra, sapien in pretium suscipit, eros libero volutpat
+            justo, ut condimentum nibh ex non augue. Morbi turpis tortor, ullamcorper non egestas id, ullamcorper vitae nisl.
+            Vestibulum mauris nibh, tincidunt commodo sodales vel, laoreet et urna. Nullam viverra libero eu tellus rutrum
+            sollicitudin.
+            
+            Quisque laoreet, est eget varius vulputate, elit nisi luctus tortor, non facilisis dolor felis vel arcu. Curabitur nibh
+            sem, porta pharetra auctor sed, pulvinar sit amet ligula. Vivamus rhoncus urna eget euismod fermentum. Integer vel
+            maximus nibh. Nulla commodo, lectus et elementum scelerisque, ligula orci feugiat neque, in interdum enim odio eget
+            nibh. Pellentesque a mauris non nisi finibus interdum. Nulla scelerisque imperdiet orci id maximus. Donec tincidunt quam
+            eu neque mattis facilisis. Curabitur ac euismod ligula. Duis eget feugiat risus. Interdum et malesuada fames ac ante
+            ipsum primis in faucibus. Aliquam vestibulum, tellus in consequat ullamcorper, sem massa congue sem, eget venenatis
+            sapien elit in diam. Mauris vestibulum velit vitae venenatis fringilla. In in facilisis lorem. Vestibulum sagittis
+            lectus nibh, non interdum mi ullamcorper eget. Donec placerat nibh ipsum, sed fringilla mauris finibus sit amet.
+            
+            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eu erat vitae odio vehicula
+            tincidunt. Duis ullamcorper diam maximus, sagittis nisl sit amet, imperdiet nisi. Nunc nisi sapien, faucibus a ligula
+            id, luctus dictum neque. Donec aliquet diam in justo scelerisque rhoncus. Fusce vitae semper erat. Sed at imperdiet
+            nibh. Integer efficitur sodales diam at lobortis. Vivamus convallis dapibus velit, ac volutpat nibh placerat rhoncus.
+            Nulla dictum ac turpis in mattis. In ante augue, dapibus ut odio a, venenatis maximus orci.
+            
+            Curabitur faucibus ornare sem sit amet pharetra. Donec faucibus facilisis erat, vitae pulvinar nisl condimentum quis.
+            Duis fermentum vitae dui vel commodo. Ut convallis sollicitudin nisl, in suscipit neque cursus vel. Nam eleifend
+            vulputate elit non feugiat. Sed faucibus sed nisl id interdum. Nulla a dui ut ipsum tristique consequat non in ante.
+            Donec suscipit dapibus malesuada. Integer enim ante, laoreet sed ligula vitae, ultricies dignissim purus.
+            
+            Morbi eleifend congue felis, a rutrum massa ullamcorper eu. Sed imperdiet lorem a auctor feugiat. Vivamus interdum a
+            metus et malesuada. Donec luctus orci sed consequat hendrerit. Donec suscipit porta porttitor. Nunc nec pharetra orci.
+            Cras nec tortor ante. Pellentesque ac efficitur justo. Suspendisse vitae lacus posuere, congue nisl in, iaculis sem. Sed
+            gravida, quam at mollis ultrices, sem urna vulputate orci, sit amet gravida nunc arcu sit amet sem. Duis in placerat
+            elit, vel convallis eros.
+        </div>
+    </div>
+
+    <!-- 화면 전체를 덮기 위한 영역-->
+    <div class="backdrop">
+        <div class="modal position-center">
+            <i class="fa-solid fa-spinner fa-spin fa-2x"></i>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS실습</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+        .dropdown{
+            width: 300px;
+            position: relative;
+        }
+        .dropdown > .btn:not(:first-child){
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: -1;
+        }
+        .dropdown >.btn{
+            transition: top 0.5s ease-out;
+        }
+        .dropdown:hover > .btn:nth-child(2){
+            top: 100%;
+        }
+        .dropdown:hover > .btn:nth-child(3){
+            top: 200%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+            <button class="btn w-100 exit">종료하기</button>
+            <button class="btn btn-positive w-100">저장하고 종료하기</button>
+            <button class="btn btn-negative w-100">저장하지 않고 종료하기</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS실습</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="commons.css"> -->
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+
+        ul.menu{
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        ul.menu a{
+            color: inherit;
+            text-decoration: none;
+        }
+        /* 1차 메뉴는 가로로 배치 */
+        ul.menu > li{
+            display: inline-block;
+        }
+
+        /* 색상 변경 및 크기 설정 */
+        ul.menu{
+            font-size: 24px;
+            background-color: #2d3436;
+        }
+        ul.menu > li{
+            color: white;
+            background-color: #2d3436;
+            padding:0.5em;
+            width: 150px;
+
+            /* 말줄임표 처리 (폭이 있어야함)*/
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        ul.menu li:hover{
+            background-color: #808283;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="#">1차 메뉴1123213213asdasdasdasdasd123</a></li>
+        <li><a href="#">1차 메뉴2</a></li>
+        <li><a href="#">1차 메뉴3</a></li>
+    </ul>
+
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS실습</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="commons.css"> -->
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+
+        ul.menu,
+        ul.menu ul{
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        ul.menu a{
+            color: inherit;
+            text-decoration: none;
+        }
+        /* 1차 메뉴는 가로로 배치 */
+        ul.menu > li{
+            display: inline-block;
+        }
+
+        /* 색상 변경 및 크기 설정 */
+        ul.menu,
+        ul.menu ul{
+            font-size: 24px;
+            background-color: #2d3436;
+        }
+        ul.menu li{
+            color: white;
+            background-color: #2d3436;
+            width: 150px;
+
+        }
+        ul.menu li:hover{
+            background-color: #808283;
+        }
+        /* 
+            1차메뉴의 아래쪽에 2차메뉴가 위치하도록 position변경
+
+        */
+        ul.menu li{
+            position:relative;
+        }
+        ul.menu ul{
+            position:absolute;
+            z-index:99999;
+            top:100%;
+            left: 0;
+        }
+
+        /* 
+            2차 이상의 메뉴를 숨김 처리
+        */
+        ul.menu > li ul{
+            display: none;
+        }
+        /* 
+            마우스가 올라간 메뉴 항목의 하위 메뉴를 표시
+        */
+        ul.menu li:hover >ul{
+            display: block;
+        }
+
+
+        /* a 태그에 말줄임표 처리 구현 */
+        ul.menu a{
+            display: block;
+            width: 100%;
+            padding: 0.5em;
+            
+            /* 말줄임표 처리 (폭이 있어야함) */
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        /* 
+            overflow로 인해 발생하는 추가 공간을 해결하기 위해 높이 설정
+        */
+        ul.menu{
+            height: 2.35em;
+        }
+
+        /* 3차 이상의 메뉴는 우측에 뜨게 설정(2차 메뉴 밑의 모든 ul) */
+        ul.menu > li > ul > li ul{
+            top:0;
+            left: 100%;
+        }
+        /* 
+            확장 스타일:메뉴를 상단에 고정 처리
+
+        */
+        ul.menu.fixed{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu fixed">
+        <li>
+            <a href="#">1차 메뉴1</a>
+            <ul>
+                <li>
+                    <a href="#">2차 메뉴1</a>
+                    <ul>
+                        <li>
+                            <a href="#">3차메뉴1</a>
+                            <ul>
+                                <li>
+                                    <a href="#">4차메뉴1</a>
+                                </li>
+                                <li>
+                                    <a href="#">4차메뉴2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">3차메뉴2</a>
+                        </li>
+                        <li>
+                            <a href="#">3차메뉴3</a>
+                        </li>
+                        <li>
+                            <a href="#">3차메뉴4</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">2차 메뉴1</a></li>
+                <li><a href="#">2차 메뉴1</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">1차 메뉴2</a>
+            <ul>
+                <li><a href="#">2차 메뉴1</a></li>
+                <li><a href="#">2차 메뉴1</a></li>
+                <li><a href="#">2차 메뉴1</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">1차 메뉴3</a>
+            <ul>
+                <li><a href="#">2차 메뉴1</a></li>
+                <li><a href="#">2차 메뉴1</a></li>
+                <li><a href="#">2차 메뉴1</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">1차 메뉴4</a>
+            <ul>
+                <li><a href="#">2차 메뉴1</a></li>
+                <li><a href="#">2차 메뉴1</a></li>
+                <li><a href="#">2차 메뉴1</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+</body>
+</html>

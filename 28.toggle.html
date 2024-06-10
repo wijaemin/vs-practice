@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토글</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+
+
+        input[name=agree] + label{
+            color: red;
+            transition: color 0.5s ease-in;
+        }
+        input[name=agree]:checked + label{
+            color: blue;
+        }
+        #ckbox{
+            display: none;
+        }
+        /* 사이드 바 디자인 */
+        .sidebar{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            z-index: 99999;
+            width: 200px;
+            background-color: blanchedalmond;
+            /* 
+            transition 속성으로 특정 항목의 변화를 원하는 형태로 구현할 수 있다 
+            -사용법
+            transition: 항목 시간 타이밍함수;
+    
+            */
+            transition: left 1s ease-out;
+        }
+        #sidebar-toggle + .sidebar{
+            left: -200px;
+        }
+        #sidebar-toggle:checked + .sidebar{
+            left: 0;
+        }
+        #heart + label{
+            color: rgb(253, 0, 0);
+            transition: color 2s ease-in-out;
+
+        }
+        #heart:checked + label{
+            color: rgb(39, 27, 148);
+        }
+        .sidebar-menu{
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            /* z-index: 100000; */
+            /* transition: left 1s ease-in-out; */
+        }
+        /* #sidebar-toggle:checked ~ .sidebar-menu{
+            left: 220px;
+        } */
+         .sidebar-menu2{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+         }
+    </style>
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>토글 디자인</h1>
+        </div>
+        <div class="row left">
+            토글(togggle) 디자인이랑 두 가지 상태를 왔다갔다 하는 디자인<br>
+            토글 디자인은 체크박스를 기반으로 진행
+        </div>
+        <div class="row left">
+            <input type="checkbox" name="agree">
+            <label>동의</label>
+        </div>
+        <div class="row left">
+            <input type="checkbox" name="agree" id="ckbox">
+            <label for="ckbox">동의</label>
+        </div>
+        <div class="row left">
+            <input type="checkbox" id="sidebar-toggle">
+            <div class="sidebar">
+                <label for="sidebar-toggle" class="sidebar-menu2">
+                    <i class="fa-solid fa-bars fa-3x"></i>                
+                </label>
+            </div>
+        <label for="sidebar-toggle">
+            <i class="fa-solid fa-bars fa-3x"></i>                
+        </label>
+        <label for="sidebar-toggle" class="sidebar-menu">
+            <i class="fa-solid fa-bars fa-3x"></i>                
+        </label>
+        </div>
+        <div class="row left">
+        </div>
+        <div class="row center">
+            <input type="checkbox" id="heart" style="display: none;">
+            <label for="heart">
+                <i class="fa-solid fa-heart fa-beat fa-4x"></i>
+            </label>
+        </div>
+    </div>
+    
+</body>
+</html>

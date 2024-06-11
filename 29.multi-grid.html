@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS실습</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container w-700">
+        <div class="row">
+            <h2>다단 배치</h2>
+        </div>
+        <div class="row left">
+            float 속성을 사용하면 기존 배치에서 벗어나 좌/우로 붙일 수 있게 된다.
+            <br>
+            float가 아닌 요소와 섞어쓰면 화면 배치가 이상해진다
+            <br>
+            해결하기 위해서는 clear라는 속성을 배치하여 구분해줘야 한다.
+        </div>
+        <div class="row">
+            <div style="float: left;">왼쪽으로 붙어라</div>
+            <div style="float: left;">왼쪽으로 붙어라</div>
+            <div style="float: right;">오른쪽으로 붙어라</div>
+            <div style="float: right;">오른쪽으로 붙어라</div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="row left">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique porta dolor eget dapibus. Donec eu imperdiet
+            dui, sed hendrerit lacus. Nulla id placerat ex. Etiam sed suscipit odio. Nullam non rutrum quam. Curabitur vel orci eu
+            lorem iaculis gravida interdum in tellus. Quisque cursus justo est, quis luctus magna semper id. Vivamus posuere elit
+            metus, vitae accumsan dui bibendum varius. Etiam purus felis, condimentum vel fringilla at, vehicula a leo. Integer
+            molestie turpis vel enim venenatis, et luctus lacus imperdiet. Donec a nunc congue, laoreet dolor sit amet, euismod ex.
+            Nullam pellentesque ante vitae turpis gravida, in viverra purus dictum. Donec efficitur ipsum vulputate dapibus
+            accumsan. Quisque ut orci ex. Aenean consectetur maximus nisl, in efficitur ligula scelerisque id.
+        </div>
+
+
+        <div class="row left">
+            가장 효과적인 해결방법은 가상선택자(virtual selector)를 이용하는 것이다
+        </div>
+
+
+        <div class="row float-container">
+            <div class="float-left">왼쪽으로 붙어라</div>
+            <div class="float-left">왼쪽으로 붙어라</div>
+            <div class="float-right">오른쪽으로 붙어라</div>
+            <div class="float-right">오른쪽으로 붙어라</div>
+        </div>
+        <div class="row left">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique porta dolor eget dapibus. Donec eu imperdiet
+            dui, sed hendrerit lacus. Nulla id placerat ex. Etiam sed suscipit odio. Nullam non rutrum quam. Curabitur vel orci eu
+            lorem iaculis gravida interdum in tellus. Quisque cursus justo est, quis luctus magna semper id. Vivamus posuere elit
+            metus, vitae accumsan dui bibendum varius. Etiam purus felis, condimentum vel fringilla at, vehicula a leo. Integer
+            molestie turpis vel enim venenatis, et luctus lacus imperdiet. Donec a nunc congue, laoreet dolor sit amet, euismod ex.
+            Nullam pellentesque ante vitae turpis gravida, in viverra purus dictum. Donec efficitur ipsum vulputate dapibus
+            accumsan. Quisque ut orci ex. Aenean consectetur maximus nisl, in efficitur ligula scelerisque id.
+        </div>
+
+        <div class="row float-container">
+            <div class="float-left col-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique porta dolor eget dapibus. Donec eu imperdiet
+                dui, sed hendrerit lacus. Nulla id placerat ex. Etiam sed suscipit odio. Nullam non rutrum quam. Curabitur vel orci eu
+                orci ex. Aenean consectetur maximus nisl, in efficitur ligula scelerisque id.
+            </div>
+            <div class="float-left col-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique porta dolor eget dapibus. Donec eu imperdiet
+                dui, sed hendrerit lacus. Nulla id placerat ex. Etiam sed suscipit odio. Nullam non rutrum quam. Curabitur vel orci eu
+                orci ex. Aenean consectetur maximus nisl, in efficitur ligula scelerisque id.
+            </div>
+        <div class="row float-container">
+            <div class="float-left col-3">
+                이런
+            </div>
+            <div class="float-left col-3">
+                범발
+            </div>
+            <div class="float-left col-3">
+                련이
+            </div>
+        </div>
+        <div class="row float-container">
+            <div class="float-left col-4">
+                아
+            </div>
+            <div class="float-left col-4">
+                범
+            </div>
+            <div class="float-left col-4">
+                발
+            </div>
+            <div class="float-left col-4">
+                련
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <!-- <link rel="stylesheet" type="text/css" href="test.css"> -->
+    <style>
+        .row{
+            margin: 5px 0px;
+        }
+        .title{
+            font-size: 20px;
+        }
+        .card{
+            /* border: 1px solid; */
+            box-shadow: 0 0 0 1px #2d3436;
+        }
+    </style>
+</head>
+<body>
+    <div class="container w-400">
+        <div class="row">
+            <h1>카드 레이아웃</h1>
+        </div>
+        <div class="row float-container card">
+            <div class="float-left w-25">
+                <img src="https://picsum.photos/id/1/75/75">
+            </div>
+            <div class="float-left w-75">
+                <div class="row left title">네네치킨-내동점</div>
+                <div class="row left">
+                    <i class="fa-solid fa-star yellow"></i>
+                    <span class="yellow">4.9</span>
+                    <span class="gray">|</span>
+                    <span class="black">리뷰 152</span>
+                    <span class="gray">|</span>
+                    <span class="black">사장님 댓글 23</span>
+                </div>
+                <div class="row left">
+                    <span class="red">요기서결제</span>
+                    <span class="gray">|</span>
+                    <span>17,000원 이상 배달</span>
+                </div>
+                <div class="row float-container">
+                    <div class="col-2 left">
+                        <span class="red">3,800원 할인</span>
+                        <img src="./images/kakao.png" width="40" height="25">
+                    </div>
+                    <div class="col-2 right">
+                        <span class="gray">50~60분</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

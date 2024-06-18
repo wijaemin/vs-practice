@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout 만들기</title>
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN(Content Delivery Network, 네트워크를 통한 컨텐츠 전달 방식)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="commons.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <style>
+        main{
+            width: 1100px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+        header{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        header > .logo{
+            width: 25%;
+
+        }
+        header > .title{
+            flex-grow: 1;
+            
+        }
+        header > .etc{
+            width: 25%;
+        }
+        header > .logo,
+        header > .title,
+        header > .etc{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav {
+            position: relative;
+        }
+        section{
+            min-height: 400px;
+            display: flex;
+        }
+        section > aside{
+            width: 150px;
+        }
+        section > article{
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <div class="logo">
+                <img src="https://dummyimage.com/200x50/000/fff">
+            </div>
+            <div class="title">타이틀/검색창</div>
+            <div class="etc">???</div>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">게시판</a></li>
+            </ul>
+        </nav>
+        <section>
+            <aside>
+                <div class="flex-container vertical center">
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴1</a></h2>
+                    </div>
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴2</a></h2>
+                    </div>
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴3</a></h2>
+                    </div>
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴4</a></h2>
+                    </div>
+                    <div class="row">
+                        <h2><a href="#" class="link">메뉴5</a></h2>
+                    </div>
+
+                </div>
+            </aside>
+            <article>컨텐츠</article>
+        </section>
+        <hr>
+        <footer>
+            <div class="row flex-container auto-width">
+                <div>
+                    왼쪽
+                </div>
+                <div>
+                    오른쪽
+                </div>
+            </div>
+            <div class="row">
+                쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라
+                쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라
+                쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라쏼라
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

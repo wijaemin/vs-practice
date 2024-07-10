@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Event란?
+        //-일반적이지 않은 특별한 상황
+        //- click, focus, input 등 다양한 상황이 존재
+
+        //Event Handling이란?
+        //-발생한 이벤트를 통제하여 원하는 작업을 실행하는 것
+        //- onclick, onfocus, oninput 등에 함수 호출 코드를 작성
+        //- 함수에서 필요한 나머지 처리를 수행하도록 구현
+        function changeImage(){
+            console.log("실행");
+
+            //이미지 태그를 참조할 수 있도록 탐색(cf. CSS 선택자)
+            var tag=document.querySelector("#target");
+            //이미지의 src를 다른 값으로 변경
+            tag.src ="/js/image/lock.png";
+        }
+        function big(){
+            var tag=document.querySelector("#target");
+            tag.width=500;
+            tag.height=500;
+        }
+        function moreBig(){
+            var tag=document.querySelector("#target");
+            tag.width=1000;
+            tag.height=1000;
+        }
+
+
+
+
+
+
+        function hello(){
+            var target=document.querySelector(".hello");
+            if(target.value>=20){
+                alert("안녕");
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <button onclick="changeImage();">다른 이미지로 변경</button>
+    <button onclick="big()">500x500으로 변경</button>
+    <button onclick="moreBig()">1000x1000으로 변경</button>
+    <hr>
+    <img id="target" src="/js/image/700.png" width="300" height="300">
+    <hr>
+    <input class="hello">
+    <button onclick="hello();">20 이상 입력하고 버튼 누르면?</button>
+</body>
+</html>

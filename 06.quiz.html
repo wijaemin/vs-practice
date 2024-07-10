@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색상변경</title>
+    <script>
+        function changeBlack(){
+            var tag=document.querySelector("#target");
+            tag.style="color:black";
+        }
+        function changeBlue(){
+            var tag=document.querySelector("#target");
+            tag.style="color:blue";
+        }
+        function changeRed(){
+            var tag=document.querySelector("#target");
+            tag.style="color:red";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="target">Hello JavaScript</h1>
+    <hr>
+    <button onclick="changeBlack()">검정</button>
+    <button onclick="changeBlue()">파랑</button>
+    <button onclick="changeRed()">빨강</button>
+</body>
+</html>

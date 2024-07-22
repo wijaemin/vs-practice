@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>색상변경</title>
     <script>
+        //(참고) style은 하위 속성을 선택하여 지정할 수 있다
         function changeBlack(){
             var tag=document.querySelector("#target");
-            tag.style="color:black";
+            // tag.style="color:black";//스타일 덮어쓰기 (비추천)
+            tag.style.color ="black";//style 속성 덮어쓰기(추천)
+            tag.style.borderColor="black";//대시(-)가 있는 항목은 카멜 케이스 사용
         }
         function changeBlue(){
             var tag=document.querySelector("#target");
-            tag.style="color:blue";
+            // tag.style="color:blue";
+            tag.style.color="blue";
+            tag.style.borderColor="blue";
         }
         function changeRed(){
             var tag=document.querySelector("#target");
-            tag.style="color:red";
+            // tag.style="color:red";
+            tag.style.color="red";
+            tag.style.borderColor="red";
         }
     </script>
 </head>
 <body>
-    <h1 id="target">Hello JavaScript</h1>
+    <h1 id="target" style="border:1px solid black;">Hello JavaScript</h1>
     <hr>
     <button onclick="changeBlack()">검정</button>
     <button onclick="changeBlue()">파랑</button>

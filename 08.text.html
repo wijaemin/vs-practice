@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 제어</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <script>
+        var a="hello";
+        // console.log(a);
+        // console.log(a[5]);
+        // console.log(a.length);
+        // console.log(a.indexOf("e"));
+        // console.log(a.substring(4,5));
+        // console.log(a.substr(0,4));
+
+        //input 입력창의 값을 불러와서 확인
+        function checkA(){
+            var tag= document.querySelector("#a");
+            // console.log(tag.value);
+            console.log(tag.value.length);
+        }
+        //select 역시 입력창이므로 value 속성이 없지만 사용할 수 있다
+        function checkB(){
+            var tag = document.querySelector("#b");
+            console.log(tag.value);
+        }
+        function checkC(){
+            var tag = document.querySelector("#c");
+            console.log(tag.value);
+            
+            // var tag2 = document.querySelector("#a");
+            // tag2.value =tag.value.length;
+
+
+            //#d, #e에 각각 글자 복사
+            //-textContent는 HTML을 해석하지 않고 일반 글자로 처리
+            //-innerHTML은 HTML을 해석하여 처리(매우 위험, 비추천)
+            var d = document.querySelector("#d");
+            d.textContent=tag.value;
+            var e = document.querySelector("#e");
+            e.innerHTML=tag.value;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>글자 불러오기</h1>
+        </div>
+        <div class="row">
+            <input type="text" class="form-input w-100" id="a" onblur="checkA();">
+        </div>
+        <div class="row">
+            <select class="form-input w-100"  id="b" oninput="checkB();">
+                <option>사과</option>
+                <option>바나나</option>
+                <option>딸기</option>
+                <option>포도</option>
+            </select>
+        </div>
+        <div class="row">
+            <textarea class="form-input w-100" rows="5"  id="c" oninput="checkC();"></textarea>
+        </div>
+
+        <div class="row" id="d"></div>
+        <div class="row" id="e"></div>
+    </div>
+
+    
+</body>
+</html>

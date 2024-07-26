@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 수 입력제한</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        //.form-input의 글자 수를 읽어 .form-input-length에 출력
+        function checkLength(){
+            var textarea=document.querySelector(".form-input");
+            var span =document.querySelector(".form-input-length");
+            span.textContent=textarea.value.length;
+
+            //만약 1000글자가 넘어간다면?
+            //- 1000글자가 될 때까지 잘라서 덮어쓰기
+            //- IME 방식의 글자들까지 고려하여 처리
+            if(textarea.value.length>1000){
+                var copy= textarea.value;
+                while(copy.length >1000){
+                    copy =copy.substring(0,copy.length-1);
+                }
+                textarea.value=copy;
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>자기소개서</h1>
+        </div>
+        <div class="row">
+            <h2>(Q) 입사 후 20년 뒤의 나의 모습은?</h2>
+        </div>
+        <div class="row">
+            <textarea class="form-input w-100" 
+            oninput="checkLength();"></textarea>
+        </div>
+        <div class="row right">
+            <span class="form-input-length blue">0</span>/1000
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-positive w-100">제출하기</button>
+        </div>
+    </div>
+    
+</body>
+</html>

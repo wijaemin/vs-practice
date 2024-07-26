@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        //자바스크립에서 정규표현식으로 문자열 검사하기
+        //정규표현식을 ㅅ행성하는 방법은 두 가지가 있다
+        //1. 직접 작성해서 정규표현식 객체를 생성
+        //2. 문자열을 이용하여 정규표현식 객체를 생성
+
+        //1.
+        
+        var idRegex= /^[a-z0-9]{8,20}$/
+        console.log(idRegex.test("test1234"));
+        console.log(idRegex.test("test123"));
+        console.log(idRegex.test("Test1234"));
+
+
+        //2
+
+        var nickRegexStr = "^[가-힣0-9]{2,10}$";
+        // console.log(nickRegexStr.test("안녕123"));//문자열은 검사가 불가
+        var nickRegex = new RegExp(nickRegexStr);
+        console.log(nickRegex.test("안녕1234"));
+        console.log(nickRegex.test("안녕123!"));
+        console.log(nickRegex.test("4"));
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>양식</title>
+    <title>개별 검사,폼 검사</title>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -13,11 +13,100 @@
     <link rel="stylesheet" type="text/css" href="./css/test.css">
 
     <script>
+        function checkEyes(){
+            var tag=document.querySelector("#eyes");
+            console.log(tag.checked);
+
+            var password=document.querySelector("[name=password]");
+            if(tag.checked){
+                password.type="text";
+            }
+            else{
+                password.type="password";
+            }
+        }
+        function checkEmail(){
+            var input= document.querySelector("[name=email]");
+            var regex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            input.classList.remove("success","fail");
+
+            var isValid=regex.test(input.value);
+
+            if(isValid){
+                input.classList.add("success");
+                return true; 
+            }
+            else{
+                input.classList.add("fail");
+                return false;
+            }
+
+
+        }
+        function checkPassword(){
+            var input = document.querySelector("[name=password]");
+            var regex=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,16}$/;
+            
+            var isValid=regex.test(input.value);
+
+            input.classList.remove("success","fail");
+            if(isValid){
+                input.classList.add("success");
+                return true;
+            }
+            else{
+                input.classList.add("fail");
+                return false;
+            }
+
+        }
+        
+        //폼 검사는 기존 검사 함수를 불러 결과를 받아 반환하도록 구현
+        function checkForm(){
+            return checkEmail() && checkPassword();
+        }
+
 
     </script>
 
 </head>
 <body>
-    
+    <div class="container w-500">
+
+        <div class="row">
+            <h1>사용자 등록</h1>
+        </div>
+
+        <form autocomplete="off" onsubmit="return checkForm();">
+
+            <div class="row left">
+                <label>이메일</label>
+                <input name="email" placeholder="testuser@naver.com" 
+                class="form-input w-100" onblur="checkEmail();">
+                <div class="success-feedback">올바른 이메일 형식입니다.</div>
+                <div class="fail-feedback">이메일 형식이 올바르지 않습니다.</div>
+            </div>
+
+            <div class="row left">
+                <label style="display: block;">비밀번호</label>
+                    <input name="password" type="password" placeholder="영어 대소문자,숫자,특수문자 포함 8~16자" 
+                    class="form-input" onblur="checkPassword();" style="width: 450px;">
+                    <input type="checkbox" id="eyes" oninput="checkEyes();" style="display: none;" >
+                    <label for="eyes" class="w-25">
+                        <img src="./images//eyes.png" width="40px" height="40px">
+                    </label>
+                    <div class="success-feedback">올바른 비밀번호 형식입니다.</div>
+                    <div class="fail-feedback">비밀번호 형식이 올바르지 않습니다.</div>
+            </div>
+
+            <div class="row">
+                <button type="submit" class="btn btn-positive w-100">
+                    <i class="fa-solid fa-plus"></i>
+                    등록하기
+                </button>
+            </div>
+        </form>
+    </div> 
 </body>
 </html>

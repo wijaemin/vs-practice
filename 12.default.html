@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본 이벤트 제어</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        function checkMove(){
+            //확인창
+            var choice = confirm("정말 이동할겁니까?");
+            // console.log(choice);
+            return choice;
+        }
+
+        function checkForm(){
+            var input = document.querySelector("[name=keyword]");
+            
+            // if(input.value.length ==0){//글자수가 0이라면
+            // if(input.value ==""){//입력값이 공백이라면
+            // if(input.value==false){//입력값이 부정적인 값이라면
+            if(!input.value){
+                alert("값을 입력해");
+                return false;
+            }
+            return true;
+
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>기본 이벤트 제어</h1>
+        </div>
+        <div class="row left">
+            기본 이벤트란 태그 자체에 내장된 이벤트를 말한다.
+            a, form 등이 있다.
+        </div>
+        <div class="row left">
+            <a href="https://www.google.com">구글로 이동</a>
+        </div>
+        <div class="row left">
+            <a href="https://www.google.com" onclick="return false;">구글로 이동(차단)</a>
+        </div>
+        <div class="row left">
+            <a href="https://www.google.com" onclick="return checkMove()">구글로 이동(선택)</a>
+        </div>
+
+        <form action="https://www.naver.com" onsubmit="return checkForm();">
+            <div class="row left">
+                <input type="text" name="keyword" class="form-input w-100">
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-positive w-100">전송</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

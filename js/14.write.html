@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        function checkTitle(){
+            var input = document.querySelector("[name=title]");
+            // var regex= /^.{1,100}$/;
+
+            var isValid = input.value.length > 0 && input.value.length <= 100;
+            input.classList.remove("fail");
+            if(isValid ==false){
+                input.classList.add("fail");
+                return false;
+            }
+            return true;
+        }
+
+        function checkContent(){
+            var textarea = document.querySelector("[name=content]");
+
+            var isValid = textarea.value.length > 0 && textarea.value.length <= 1000;
+
+            var len = document.querySelector(".len");
+
+            len.classList.remove("red");
+            len.textContent=textarea.value.length;
+            textarea.classList.remove("fail");
+            if(!isValid){
+                textarea.classList.add("fail");
+                len.classList.add("red");
+                return false;
+            }
+            return true;
+        }
+
+        function checkForm(){
+            var r1=checkTitle();
+            var r2=checkContent();
+
+            return r1 && r2;
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>게시글 작성</h1>
+        </div>
+        <!-- onsubmit 할 때 return을 붙이는 이유
+            기본 이벤트가 있는 form과 a태그는 return을 붙여줘야한다
+           -->
+        <form autocomplete="off" onsubmit="return checkForm()">
+            <div class="row left">
+                <label>제목
+                    <i class="fa-solid fa-asterisk red"></i>
+                </label>
+                <input type="text" name="title" class="form-input w-100" 
+                    onblur="checkTitle()">
+                <div class="fail-feedback">제목은 필수이며 100자 이내로 작성하세요</div>
+            </div>
+
+            <div class="row left">
+                <label>
+                    내용
+                    <i class="fa-solid fa-asterisk red"></i>
+                </label>
+
+                <textarea name="content" class="form-input w-100"
+                        rows="10" oninput="checkContent()"></textarea>
+                <div class="fail-feedback">내용은 반드시 작성</div>
+            </div>
+            <div class="row right">
+                <span class="len red">0</span>/1000
+            </div>
+
+            <div class="row">
+                <button class="btn btn-positive w-100">
+                    <i class="fa-solid fa-pen">작성하기</i>
+                </button> 
+            </div>
+        </form>
+    </div>
+</body>
+</html>

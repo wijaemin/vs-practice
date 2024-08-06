@@ -680,7 +680,7 @@ input[name=memberAddr1]{
 
         .success{
             border-color: #00b894 !important;
-            background-image: url("./images/success.png");
+            background-image: url("../images/success.png");
             background-repeat: no-repeat;
             background-position-x: right;
             background-position-y: center;
@@ -689,7 +689,7 @@ input[name=memberAddr1]{
         .fail,
         .fail2{
             border-color: #d63031 !important;
-            background-image: url("./images/fail.png");
+            background-image: url("../images/fail.png");
             background-repeat: no-repeat;
             background-position-x: right;
             background-position-y: center;

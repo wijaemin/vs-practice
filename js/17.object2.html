@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 객체 및 배열 사용법</title>
+    <!-- css파일을 불러오는 코드 -->
+
+    <!--icon을 사용하기 위한 Font Awesome 6 CDN-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!--구글 웹폰트 사용을 위한 CDN-->
+
+    <!-- 내가 만든 CSS파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+
+    </style>
+    <!-- javascript 작성 공간 -->
+
+    <script>
+        //자바스크리브에서는 배열과 객체를 모두 객체라고 한다
+        //각각 2종류씩의 생성방법이 존재한다
+
+        //객체는 (1) 생성자 함수 (2) 일회용 객체 방식이 존재
+
+        //(1)
+        function Student(name,score){
+            this.name =name;
+            this.score =score;
+
+        }
+        var a= new Student("피카츄",50);
+        var b= new Student("라이츄", 70);
+
+        console.log(a);
+        console.log(a.name, a.score);
+        console.log(b);
+        console.log(b.name, b.score);
+
+
+        //(2)
+        var c={
+            name : "피카츄",
+            age : 20
+        };
+        var d={
+            name : "라이츄",
+            age : 25
+        };
+        console.log(c);
+        console.log(d);
+        
+        //배열은 (1)정적 (2)동적 방식으로 생성할 수 있다
+        //- 생성과 메모리 저장방식이 다를 뿐.. 자바스크립트 배열은 모두 늘어난다
+
+        //(1)
+        var e=[10,20,30];
+        // e[4] ="hello";
+        e.push(40);//맨 뒤에 데이터를 추가
+        console.log(e);
+
+        //(2)
+        var f= new Array(100);
+        f.fill("hi",0,50);
+        console.log(f);
+        console.log(f.length);
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

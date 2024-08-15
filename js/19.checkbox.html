@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        function check(){
+            var checkbox = document.querySelector("#check");
+
+            console.log(checkbox.checked);
+            var btn=document.querySelector("#btn");
+            // if(checkbox.checked){
+            //     btn.disabled=false;
+            // }
+            // else{
+            //     btn.disabled=false;
+            // }
+
+            btn.disabled =!checkbox.checked;
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>체크박스 제어</h1>
+        </div>
+        <div class="row">
+            <div class="row left">
+                <!-- 라벨로 체크박스를 감싸면 ID가 없어도 타겟팅이 가능 -->
+                <label>
+                    <input id="check" type="checkbox" oninput="check()">
+                    체크박스
+                </label>
+            </div>
+
+            <div class="row">
+                <button id="btn" class="btn btn-positive w-100" disabled>버튼</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

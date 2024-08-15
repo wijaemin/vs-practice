@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        //다음 점수 데이터로 (1)총점, (2)평균, (3) 60점의 예상 등수 구하여 출력
+        var scoreList = [70, 55, 90, 100, 82, 88];
+        var total=0;
+        var average=0;
+        var rank=1;
+        
+        for(var i=0;i<scoreList.length;i++){
+            total += scoreList[i];
+            if(scoreList[i]>60){
+                rank++;
+            }
+        }
+        average=total/scoreList.length;
+
+        console.log(total);
+        console.log(average);
+        console.log("평균 = " + parseInt(average));
+        console.log("예상 등수 = " + rank);
+
+        //다음 배열에 1부터 100사이에서 3,6,9가 들어간 숫자를 추가
+
+        var number369 = [];
+
+        for(var i=1;i<=100;i++){
+            var one = i%10==3 || i%10==6 || i%10==9;
+            var ten = parseInt(i/10) == 3 || parseInt(i/10) == 6 || parseInt(i/10) == 9;
+            if(one||ten){
+                number369.push(i);
+            }
+        }
+        console.log(number369);
+
+        
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

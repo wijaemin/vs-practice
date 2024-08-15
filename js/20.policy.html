@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이용약관</title>
+
+    <!-- css 파일을 불러오는 코드 -->
+
+    <!-- 아이콘 사용을 위한 Font Awesome 6 CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 구글 웹 폰트 사용을 위한 CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <!-- 내가 만든 CSS 파일-->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+
+    </style>
+
+    <!-- javascript 작성 공간 -->
+    <script>
+        function checkAgree1(){
+            var agree1 = document.querySelector("#agree1");
+            var agree2 = document.querySelector("#agree2");
+            var agreeAll = document.querySelector("#agree-all");
+            var nextBtn = document.querySelector("#next-btn");
+
+            agreeAll.checked = agree1.checked && agree2.checked;
+            nextBtn.disabled = !agreeAll.checked;
+        }
+
+        function checkAgree2(){
+            var agree1 = document.querySelector("#agree1");
+            var agree2 = document.querySelector("#agree2");
+            var agreeAll = document.querySelector("#agree-all");
+            var nextBtn = document.querySelector("#next-btn");
+
+            agreeAll.checked = agree1.checked && agree2.checked;
+            nextBtn.disabled = !agreeAll.checked;
+        }
+
+        function checkAgreeAll(){
+            var agree1 = document.querySelector("#agree1");
+            var agree2 = document.querySelector("#agree2");
+            var agreeAll = document.querySelector("#agree-all");
+            var nextBtn = document.querySelector("#next-btn");
+
+            agree1.checked = agreeAll.checked;
+            agree2.checked = agreeAll.checked;
+            nextBtn.disabled = !agreeAll.checked;
+        }
+    </script>
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>이용약관</h1>
+        </div>
+        <div class="row left">
+            <textarea class="form-input w-100" readonly>dummy text</textarea>
+        </div>
+        <div class="row left">
+            <label>
+                <input type="checkbox" id="agree1" oninput="checkAgree1();"> 동의합니다
+            </label>
+        </div>
+        <div class="row left">
+            <textarea class="form-input w-100" readonly>dummy text</textarea>
+        </div>
+        <div class="row left">
+            <label>
+                <input type="checkbox" id="agree2" oninput="checkAgree2();"> 동의합니다
+            </label>
+        </div>
+        <hr>
+        <div class="row left">
+            <label>
+                <input type="checkbox" id="agree-all" oninput="checkAgreeAll();"> 모두 동의합니다
+            </label>
+        </div>
+        <div class="row">
+            <button class="btn btn-positive w-100" disabled
+                                            id="next-btn">다음 단계로 이동</button>
+        </div>
+    </div>
+</body>
+</html>

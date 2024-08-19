@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        window.addEventListener("load",function(){
+
+            var buttonList = document.querySelectorAll(".btn");
+            
+            console.log(buttonList);
+
+            for(var i=0;i<buttonList.length;i++){
+                buttonList[i].addEventListener("click",function(){
+                    //this == 클릭한 버튼(주인공)
+                    var h1= document.querySelector(".target");
+
+                    h1.style.color=this.dataset.color;
+                }); 
+            };
+
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1 class="target">색상 변경 예제</h1>
+        </div>
+
+        <div class="row">
+            <button class="btn btn-black" data-color="black">검정</button>
+            <button class="btn btn-red" data-color="red">빨강</button>
+            <button class="btn btn-blue" data-color="blue">파랑</button>
+            <button class="btn btn-blue" data-color="grey">회색</button>
+            <button class="btn btn-blue" data-color="yellow">노랑</button>
+        </div>
+    </div>
+</body>
+</html>

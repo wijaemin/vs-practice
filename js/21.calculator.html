@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예상 결제 금액 계산</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        function calculate(tag){
+            // console.log(tag.value);//value 읽기
+            // console.log(tag.dataset.price);//data-*를 읽는 방법
+
+            //체크되어 있는 모든 체크박스를 불러와서 data-price를 합쳐서 출력
+            var checkboxList =document.querySelectorAll(".check-item:checked");
+            var total=0;
+            for(var i=0;i<checkboxList.length;i++){
+                total += parseInt(checkboxList[i].dataset.price);
+            }
+            var span =document.querySelector(".display");
+            span.textContent=total;
+        }
+        function refreshCheckbox(tag){
+            //<계획>
+            //1. 체크된 체크박스 확인
+            //2-1. 전체가 체크된 경우 개별 항목을 모두 체크
+            //2-2. 개별항목이 체크된 경우 전체 체크여부를 확인
+            // console.log(tag.classList);
+
+            if(tag.classList.contains("check-all")){
+                var itemList=document.querySelectorAll(".check-item");
+                var allList= document.querySelectorAll(".check-all");
+
+                for(var i=0;i<itemList.length;i++){
+                    itemList[i].checked=tag.checked;
+                }
+                for(var i=0;i< allList.length;i++){
+                    allList[i].checked=tag.checked;
+                }
+
+            }
+            else if(tag.classList.contains("check-item")){
+                var itemList=document.querySelectorAll(".check-item");
+                var checkedUItemList=document.querySelectorAll(".check-item:checked");
+                var allChecked = itemList.length == checkedUItemList.length;
+
+                var allList= document.querySelectorAll(".check-all");
+                for(var i=0;i< allList.length;i++){
+                    allList[i].checked= allChecked;
+                }
+
+            }
+
+
+
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container w-400">
+        <div class="row">
+            <h1>KH 과일 상회</h1>
+        </div>
+
+        <div class="row left">
+            <label>
+                <input type="checkbox" class="check-all" 
+                onchange="calculate(this)" oninput="refreshCheckbox(this);">
+                모두 선택
+            </label>
+        </div>
+        <div class="row left">
+            <label>
+                <input type="checkbox" class="check-item" 
+                        onchange="calculate(this)" oninput="refreshCheckbox(this);" 
+                        name="fruit" data-price="500">
+                사과(500원)
+            </label>
+        </div>
+        <div class="row left">
+            <label>
+                <input type="checkbox" class="check-item" 
+                        onchange="calculate(this)" oninput="refreshCheckbox(this);"
+                        name="fruit" data-price="1000">
+                딸기(1000원)
+            </label>
+        </div>
+        <div class="row left">
+            <label>
+                <input type="checkbox" class="check-item" 
+                        onchange="calculate(this)" oninput="refreshCheckbox(this);"
+                        name="fruit" data-price="800">
+                바나나(800원)
+            </label>
+        </div>
+        <div class="row left">
+            <label>
+                <input type="checkbox" class="check-item" 
+                    onchange="calculate(this)" oninput="refreshCheckbox(this);"
+                    name="fruit" data-price="2000">
+                포도(2000원)
+            </label>
+        </div>
+
+        <div class="row left">
+            <h2>예상 결제 금액 : <span class="display">0</span>원</h2>
+        </div>
+    </div>
+</body>
+</html>

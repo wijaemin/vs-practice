@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <script>
+        //목표:
+        //버튼을 누르면 안녕!이라는 alert이 뜨게 하기
+        //onclick 안쓰고
+
+        //1.버튼 선택
+        //2. 버튼에 클릭 이벤트 설정
+        //3. 클릭 이벤트에서 함수 실행
+        function welcome(){
+            alert("hello!");
+        }
+        function init(){
+            var btn =document.querySelector(".btn");
+            console.log(btn);
+            btn.onclick=welcome;
+        }
+
+        window.onload=init;
+    </script>
+
+</head>
+<body>
+    <button class="btn">Click</button>
+    
+</body>
+</html>

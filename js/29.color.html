@@ -13,11 +13,29 @@
     <link rel="stylesheet" type="text/css" href="./css/test.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
+        $(function(){
+            // $(".btn").on("click",function(){
+            $(".btn").click(function(){
+                //var color= this.dataset.color;//JS
+                var color= $(this).data("color");//JQuery
+                $(".target").css("color",color);
+            });
 
+        });
     </script>
 
 </head>
 <body>
-    
+    <div class="container w-500">
+        <div class="row">
+            <h1 class="target">색상 변경 예제(JQuery)</h1>
+        </div>
+
+        <div class="row">
+            <button class="btn" data-color="black">검정</button>
+            <button class="btn" data-color="blue">파랑</button>
+            <button class="btn" data-color="red">빨강</button>
+        </div>
+    </div>
 </body>
 </html>

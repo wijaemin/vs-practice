@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+        .p-10{
+            padding: 10px;
+        }
+        .target{
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            padding: 10px;
+            font-size: 24px;
+        }
+    </style>
+    <script>
+        window.addEventListener("load",function(){
+            var buttonList= document.querySelectorAll(".keypad");
+
+            for(var i=0;i<buttonList.length;i++){
+                buttonList[i].addEventListener("click",function(){
+
+                    var div = document.querySelector(".target");
+                    div.textContent += this.textContent;
+                });
+            }
+
+            var clearBtn = document.querySelector(".clear");
+
+            clearBtn.addEventListener("click",function(){
+                var div = document.querySelector(".target");
+                div.textContent="";
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-400">
+        <div class="row">
+            <div class="target" style="height: 50px;"></div>
+        </div>
+        <hr>
+        <div class="row float-container">
+            <div class="col-3 p-10"><button class="btn w-100 keypad">7</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">8</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">9</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">4</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">5</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">6</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">1</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">2</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">3</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">*</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 keypad">0</button></div>
+            <div class="col-3 p-10"><button class="btn w-100 clear">#</button></div>
+        </div>
+    </div>
+
+</body>
+</html>

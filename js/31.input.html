@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+
+            //(주의) input이벤트는 약식명령이 없다
+            $("[name=keyword]").on("input",function(){
+                //this == 입력이 발생한 입력창
+                // console.log(this.value);//JS
+                // console.log($(this).val());//JQuery
+                var content= $(this).val();
+
+                // document.querySelector(".text").textContent= content;
+                $(".text").text(content);
+                // document.querySelector(".html").innerHTML= content;
+                $(".html").html(content);
+
+                // $(".length").text(content.length);
+                //현재 태그(this)의 위치를 기준으로 탐색하여 설정(DOM 탐색)
+                //- parent() - 상위 태그
+                //- next() - 뒤 태그
+                //- prev() - 앞 태그
+                //- childrens() 하위 태그
+                $(this).parent().next().text(content.length);
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>입력창 제어</h1>
+        </div>
+
+        <div class="row">
+            <input type="text" name="keyword" class="form-input w-100">
+        </div>
+        <div class="row length">0</div>
+        <div class="row text"></div>
+        <div class="row html"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 수 입력제한</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $(".form-input").on("input",function(){
+                // var length=this.value.length;//js
+                var length =$(this).val().length;//JQuery
+                
+                // $(".form-input-length").text(length);//전부다
+                // $(this).next().text(lengthjs/32.self.html);
+                $(this).next(".form-input-length").text(length);
+
+                // this.nextElementSibling.classList.remove("red");
+                $(this).next().removeClass("red");
+                if(length>1000){
+                    // this.nextElementSibling.classList.add("red");
+                    $(this).next().addClass("red");
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>자기소개서</h1>
+        </div>
+        <div class="row">
+            <h2>(Q) 본인 성격의 장단점을 기술하시오</h2>
+        </div>
+        <div class="row right">
+            <textarea class="form-input w-100" rows="10"></textarea>
+            <span class="form-input-length">0</span>/1000
+        </div>
+        <div class="row">
+            <h2>(Q) 입사 후 20년 뒤의 나의 모습은?</h2>
+        </div>
+        <div class="row right">
+            <textarea class="form-input w-100" rows="10"></textarea>
+            <span class="form-input-length">0</span>/1000
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-positive w-100">제출하기</button>
+        </div>
+    </div>
+    
+</body>
+</html>

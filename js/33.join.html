@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $("[name=email]").blur(function(){
+                var regex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                var isValid= regex.test($(this).val());
+
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail");
+            });
+            $("[name=password]").blur(function(){
+                var regex=/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$])[A-Za-z0-9!@#$]{8,16}$/;
+                var isValid=regex.test($(this).val());
+                $(this).removeClass("success fail");
+                $(this).addClass(isValid ? "success" : "fail");
+
+            });
+            $("#password-check").blur(function(){
+                var originPw = $("[name=password]").val();
+                var checkPw = $(this).val();
+
+                $(this).removeClass("success fail fail2");
+                if(originPw.length==0){ //비밀번호 미입력
+                    $(this).addClass("fail");
+                }
+                else if(일치){ //비밀번호 일치
+                    $(this).addClass("success");
+                }
+                else{ //불일치
+                    $(this).addClass("fail2");
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>회원가입</h1>
+        </div>
+        <div class="row left">
+            <label>이메일</label>
+            <input type="text" name="email" class="form-input w-100">
+            <div class="success-feedback">올바른 이메일 입니다.</div>
+            <div class="fail-feedback">이메일 형식이 잘못됐습니다.</div>
+        </div>
+        <div class="row left">
+            <label>비밀번호</label>
+            <input type="password" name="password" class="form-input w-100" >
+            <div class="success-feedback">올바른 비밀번호 형식입니다.</div>
+            <div class="fail-feedback">비밀번호 형식이 올바르지 않습니다.</div>
+        </div>
+        <div class="row left">
+            <label>비밀번호 확인</label>
+            <input type="password" id="password-check" class="form-input w-100">
+            <div class="success-feedback">비밀번호와 일치합니다.</div>
+            <div class="fail-feedback">비밀번호를 먼저 입력해주세요.</div>
+            <div class="fail2-feedback">비밀번호와 일치하지 않습니다.</div>
+        </div>
+    </div>
+</body>
+</html>

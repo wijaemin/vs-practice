@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $(".btn").click(function(){
+                // var size= this.dataset.size;//JS
+                var size=$(this).data("size");//JQuery
+                // $(".target").css("width",size);
+                // $(".target").css("height",size);
+
+                //한 번 선택하여 계쏙 설정 가능(체이닝)
+                // $(".target").css("width",size).css("height",size);
+
+                //객체 형태로도 설정 가능
+                $(".target").css({
+                    width:size,
+                    height:size
+                });
+            
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <button class="btn" data-size="150px">작게</button>
+    <button class="btn" data-size="300px">보통</button>
+    <button class="btn" data-size="450px">크게</button>
+
+    <hr>
+
+    <img class="target" src="./images/japan.jpg" style="width: 300px; height: 300px;">
+</body>
+</html>

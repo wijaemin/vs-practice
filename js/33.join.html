@@ -37,7 +37,7 @@
                 if(originPw.length==0){ //비밀번호 미입력
                     $(this).addClass("fail");
                 }
-                else if(일치){ //비밀번호 일치
+                else if(originPw == checkPw){ //비밀번호 일치
                     $(this).addClass("success");
                 }
                 else{ //불일치

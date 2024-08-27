@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+
+            // $(".ck").on("input",function(){});
+            // $(".ck").on("change",function(){});
+            $(".ck").change(function(){
+                //this == 체크박스
+                // console.log(this.checked);//JS
+
+                //JQuery에서는 태그의 정보를 읽을 때 두 가지 명령이 있다
+                //.prop() 은 자바스크립에서 관리하는 태그의 정보를 읽는다
+                //.attr() 은 태그에 써있는 글자를 읽는다.
+                //- 원래 태그에 존재하는 속성은 prop(), 아니면 attr()을 사용
+                // console.log($(this).prop("checked"));
+                // console.log($(this).attr("checked"));
+
+                //체크 여부에 따라 비밀번호 표시
+                if($(this).prop("checked")){
+                    $("[name=password]").prop("type","text");
+                }
+                else{
+                    $("[name=password]").prop("type","password");
+                }
+            });
+            $(".btn").click(function(){
+                // $(".check-item").prop("checked",true);//전체선택
+                // $(".check-item").prop("checked", false);//전체 해제
+
+                //체크 상태를 반대로 하고 싶다면..
+                //일괄처리가 아니기 때문에 반복이 필요
+                $(".check-item").each(function(index,element){
+                    // console.log(this);
+                    // console.log(index);
+                    // this.checked = !this.checked//JS
+
+                    //JQuery
+                    var checked= $(this).prop("checked");
+                    $(this).prop("checked",!checked);
+                    
+                });
+
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>체크 박스 제어</h1>
+        </div>
+        <div class="row left">
+            <input type="checkbox" class="ck">비밀번호 표시
+        </div>
+        <div class="row left">
+            <input type="password" name="password" class="form-input w-100">
+        </div>
+        <div cass="row left">
+            <button type="button" class="btn">전체 선택</button>
+        </div>
+        <div class="row left">
+            <input type="checkbox" class="check-item">
+            <input type="checkbox" class="check-item">
+            <input type="checkbox" class="check-item">
+            <input type="checkbox" class="check-item">
+            <input type="checkbox" class="check-item">
+        </div>
+    </div>
+</body>
+</html>

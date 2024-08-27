@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //전체 선택과 개별 체크박스에 대한 이벤트 구현
+
+            //전체 선택
+            $(".check-all").change(function(){
+                var check = $(this).prop("checked");
+                $(".check-all, .check-item").prop("checked",check);
+            });
+
+            //개별 체크박스
+            $(".check-item").change(function(){
+                // var allCheck= 개별체크박스 개수 == 체크된 개별체크박스 개수;
+                // var allCheck = $(".check-item").length == $(".check-item:checked").length;
+                var allCheck = $(".check-item").length == $(".check-item").filter(":checked").length;
+                $(".check-all").prop("checked",allCheck);
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>이용약관</h1>
+        </div>
+        <div class="row left">
+            <textarea class="form-input w-100" readonly>dummy text</textarea>
+        </div>
+        <div class="row left">
+            <label>
+                <input type="checkbox" class="check-item"> 동의합니다
+            </label>
+        </div>
+        <div class="row left">
+            <textarea class="form-input w-100" readonly>dummy text</textarea>
+        </div>
+        <div class="row left">
+            <label>
+                <input type="checkbox" class="check-item"> 동의합니다
+            </label>
+        </div>
+        <hr>
+        <div class="row left">
+            <label>
+                <input type="checkbox" class="check-all"> 모두 동의합니다
+            </label>
+        </div>
+        <div class="row">
+            <button class="btn btn-positive w-100" disabled
+                id="next-btn">다음 단계로 이동</button>
+        </div>
+    </div>
+</body>
+</html>

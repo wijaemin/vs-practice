@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <style>
+        /* 
+            진행바 디자인
+        */
+        .progressbar{
+            width: 100%;
+            height: 5px;
+        }
+        .progressbar > .gauge{
+            width: 0%;
+            height: 100%;
+            background: rgb(131,58,180);
+            background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+
+            transition: width 0.1s ease-out;
+        }
+    </style>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="multipage.js"></script>
+    <script src="join.js"></script>
+    <script>
+        $(function(){
+
+            refreshProgressbar();
+            //이전이나 다음버튼을 누르면 진행상황을 파악하여 게이지 계산
+            $(".btn-prev, .btn-next").click(function(){
+                //page 중에 보여지는 태그를 찾아서 계산
+                //-전체 페이지 수 + 보여지는 페이지 번호
+                refreshProgressbar();
+            });
+            
+            function refreshProgressbar(){
+                var count=0;
+                var index=0;
+                $(".page").each(function(idx, el){
+                    //현재 태그가 표시중이라면
+                    if($(this).is(":visible")){
+                        index=idx+1;
+                    }
+                    count++;
+                });
+
+                var percent=index*100/count;
+                $(".progressbar > .gauge").css("width",percent+"%");
+            }
+        
+
+
+        });
+    </script>
+
+</head>
+<body>
+    <form  class="join-form" action="" method="post" autocomplete="off">
+
+        <div class="container w-600">
+            <div class="row">
+                <h1>회원 정보 입력</h1>
+            </div>
+            
+            <!-- 전체 진행단계를 알 수 있는 게이지 출력 -->
+             <div class="row">
+                <div class="progressbar">
+                    <div class="gauge"></div>
+                </div>
+             </div>
+
+            <div class="row page">
+                <div class="row">
+                    <h2>1단계 : 이메일, 비밀번호</h2>
+                </div>
+                <div class="row left">
+                    <label>이메일</label>
+                    <input type="text" name="email" placeholder="testuser@kh.com" 
+                        class="form-input w-100">
+                    <div class="success-feedback">올바른 이메일 형식입니다</div>
+                    <div class="fail-feedback">잘못된 이메일 형식입니다</div>
+                    <div class="fail2-feedback">중복된 이메일입니다</div>
+                </div>
+                <div class="row left">
+                    <label>비밀번호</label>
+                    <input type="password" name="password" 
+                    placeholder="영문 대소문자+숫자+특수문자 반드시 포함 8~16자" 
+                    class="form-input w-100">
+                    <div class="success-feedback">올바른 비밀번호 형식입니다</div>
+                    <div class="fail-feedback">잘못된 비밀번호 형식입니다</div>
+                </div>
+                <div class="row left">
+                    <label>비밀번호 확인</label>
+                    <input type="password" id="password-check" 
+                        placeholder="비밀번호 재입력" 
+                        class="form-input w-100">
+                    <div class="success-feedback">비밀번호가 일치합니다</div>
+                    <div class="fail-feedback">비밀번호가 일치하지 않습니다</div>
+                    <div class="fail2-feedback">비밀번호를 먼저 작성하세요</div>
+                </div>
+
+                <!-- 버튼처리 -->
+                <div class="row">
+                    <button type="button" class="btn btn-prev">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button type="button" class="btn btn-next">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row page">
+                <div class="row">
+                    <h2>2단계 : 닉네임, 전화번호, 생년월일</h2>
+                </div>
+                <div class="row left">
+                    <label>닉네임</label>
+                    <input type= "text" name="nickname" class="form-input w-100" 
+                        placeholder="한글 또는 숫자 2~10자 이내">
+                 <div class="success-feedback">올바른 닉네임 형식입니다</div>
+                 <div class="fail-feedback">잘못된 닉네임 형식입니다</div>
+                 <div class="fail2-feedback">이미 사용하고있는 닉네임입니다</div>
+                </div>
+                <div class="row left">
+                    <label>전화번호</label>
+                    <input type="tel" name="contact" placeholder="010XXXXXXXX(-제외)"
+                        class="form-input w-100">
+                    <div class="fail-feedback">전화번호 형식이 올바르지 않습니다</div>
+    
+                </div>
+                <div class="row left">
+                    <label>생년월일</label>
+                    <input type="date" name="birth" class="form-input w-100">
+                   <div class="fail-feedback">잘못된 날짜를 선택하셨습니다</div>
+                </div>
+                <!-- 버튼처리 -->
+                <button type="button" class="btn btn-prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button type="button" class="btn btn-next">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="row page">
+                <div class="row">
+                    <h2>3단계 : 주소</h2>
+                </div>
+                <div class="row left">
+                    <label style="display: block;">주소</label>
+                    <input type="text" name="post" placeholder="우편번호" 
+                        class="form-input" size="6" maxlength="6" >
+                    <button type="button" class="btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+    
+                    <input type="text" name="addr1"  placeholder="기본주소" 
+                    class="form-input w-100 mt-10">
+                    <input type="text" name="addr2"  placeholder="상세주소" 
+                    class="form-input w-100 mt-10">
+                </div>
+
+                <!-- 버튼처리 -->
+                <button type="button" class="btn btn-prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button type="button" class="btn btn-next">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <div class="row left">
+                    <button class="btn btn-positive w-100">가입하기</button>
+                </div>
+            </div>
+
+    </form>
+</body>
+</html>

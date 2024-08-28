@@ -32,11 +32,11 @@
             $(".btn-next").last().remove();
             //[2]다음 버튼을 누르면 버튼이 속한 페이지를 숨기고 뒷페이지 표시
             $(".btn-next").click(function(){
-                $(this).parent(".page").hide().next(".page").show();
+                $(this).parents(".page").hide().next(".page").show();
             });
             //[3] 이전 버튼을 누르면 버튼이 속한 페이지를 숨기고 앞페이지 표시
             $(".btn-prev").click(function(){
-                $(this).parent(".page").hide().prev(".page").show();
+                $(this).parents(".page").hide().prev(".page").show();
             });
         });
     </script>

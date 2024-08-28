@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <style>
+        .page{
+            display: none;
+        }
+        .page.active{
+            display: block;
+        }
+    </style>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //[1]active 클래스를 활용하는 방식
+            //- page 중에 active가 붙어있지 않은 page를 모두 숨김
+            
+            // $(".btn-prev").hide();
+            refreshButton();
+            //-다음버튼(.btn-next)을 누르면 active를 뒷 page로 이동
+            $(".btn-next").click(function(){
+                $(".page.active").removeClass("active").next().addClass("active");
+                refreshButton();
+
+            });
+            //-이전버튼(.btn-prev)을 누르면 active를 앞 page로 이동
+            $(".btn-prev").click(function(){
+                $(".page.active").removeClass("active").prev().addClass("active");
+                refreshButton();
+            });
+
+            function refreshButton(){
+                var pageList = $(".page");
+
+                
+                // if(맨 앞 페이지에 active 클래스가 있다면){
+                if(pageList.first().hasClass("active")){
+                    $(".btn-prev").hide();
+                    $(".btn-next").show();
+
+                }
+                // else if(맨 뒷 페이지에 active 클래스가 있다면){
+                else if(pageList.last().hasClass("active")){
+                    $(".btn-prev").show();
+                    $(".btn-next").hide();
+                }
+                else{
+                    $(".btn-prev").show();
+                    $(".btn-next").show();
+                }
+            }
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>멀티 페이지</h1>
+        </div>
+        <div class="row page-wrapper">
+            <div class="page active">1페이지</div>
+            <div class="page">2페이지</div>
+            <div class="page">3페이지</div>
+            <div class="page">4페이지</div>
+            <div class="page">5페이지</div>
+        </div>
+        <div class="row">
+            <button class="btn btn-prev">이전</button>
+            <button class="btn btn-next">다음</button>
+        </div>
+    </div>
+</body>
+</html>

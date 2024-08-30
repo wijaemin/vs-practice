@@ -17,7 +17,6 @@ $(function(){
     $("[name=email]").blur(function(e){
         var regex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         var isValid = regex.test($(e.target).val());
-        $(e.target).removeClass("success fail fail2");
 
         if(isValid){//형식 유효할 시
             
@@ -30,10 +29,12 @@ $(function(){
                 },
                 success : function(response){
                     if(response == "Y"){
+                        $(e.target).removeClass("success fail fail2");
                         $(e.target).addClass("success");
                         status.email=true;
                     }
                     else{
+                        $(e.target).removeClass("success fail fail2");
                         $(e.target).addClass("fail2");
                         status.email=false;
                     }
@@ -44,6 +45,7 @@ $(function(){
             });
         }
         else{//유효하지 않을 시
+            $(e.target).removeClass("success fail fail2");
             $(e.target).addClass("fail");
             status.email =false;
         }

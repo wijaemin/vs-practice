@@ -18,8 +18,11 @@
             $(".load-btn").click(function(){
                 // $.ajax({옵션})
                 $.ajax({
-                    url:"./43.ajax.txt",//불러올 대상의 주소
+                    // url:"./43.ajax.txt",//불러올 대상의 주소
+                    url:"http://localhost:9999/lotto",
+                    
                     success:function(response){
+                        console.log(response);
                         $(".display").text(response);
                     }
                 })

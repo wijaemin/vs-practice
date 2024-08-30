@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //목표 : 아이디의 입력이 완료되면 중복검사를 요청하여 결과를 출력
+            $("[name=memberId]").blur(function(){
+
+                var id=$(this).val();
+
+                $.ajax({
+                    url:"http://localhost:9999/idCheck",
+                    method:"post",//전송방식
+                    data:{//전송 데이터
+                        memberId : id
+                    },
+                    success:function(response){
+                        //아이디 있으면 Y 없으면 N
+                        // $(".display").text(response);
+                        if(response=="Y"){
+                            $(".display").text("이미 사용중인 아이디");
+                        }
+                        else{
+                            $(".display").text("사용 가능 아이디");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>아이디 검사</h1>
+        </div>
+        <div class="row">
+            <input type="text" name="memberId" class="form-input w-100" autocomplete="off">
+        </div>
+        <div class="row display"></div>
+    </div>
+</body>
+</html>

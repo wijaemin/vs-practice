@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $(".load-btn").click(function(){
+
+                //목표 : #template을 복사하여 컨테이너 하단에 추가
+                var template = $("#template").html();
+
+                $(".container").append(template);
+            });
+        });
+        
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>HTML 템플릿 활용</h1>
+        </div>
+
+        <div class="row">
+            <button class="btn w-100 load-btn">포켓몬 정보 불러오기</button>
+        </div>
+
+        <div class="row" id="template">
+            <h1>피카츄</h1>
+            <ul>
+                <li>번호 : 25</li>
+                <li>속성 : 전기</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

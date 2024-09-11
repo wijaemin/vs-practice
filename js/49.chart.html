@@ -1,0 +1,57 @@
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    $(function(){
+        //서버로 비동기 통신을 시도해
+        //차트 구현을 위한 데이터 가져오기
+
+        $.ajax({
+            url:"http://localhost:8080/rest/member/stat/count",
+            // method:"get",
+            //data 없음
+            dataType:"json",//서버에서 받기를 기대하는 형태(아니면 에러처리)
+            success:function(response){
+                console.log(response);
+                var labels =[], data=[];
+                for(var i=0;i<response.length;i++){
+                    labels.push(response[i].name);
+                    data.push(response[i].cnt);
+                }
+                const ctx = document.getElementById('myChart');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: '인원 수',
+                            data: data,
+                            borderWidth: 1,
+                            borderRadius: 10
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '타이틀'
+                            }
+                        }
+                        
+                    }
+                });
+            },
+        });
+    });
+
+</script>

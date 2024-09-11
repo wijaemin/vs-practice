@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //canvas 제어 방식
+            //-canvas는 JavaScript API로 제어한다
+            //-canvas의 그림 그리는 도구를 context 또는 graphics 라고 부름
+            var canvas = document.querySelector(".sketch");
+            var context = canvas.getContext("2d");
+
+            context.fillStyle = "rgb(200,0,0)";
+            context.fillRect(10,10,50,50);
+            
+            context.fillStyle = "rgb(0,100,0)";
+            context.fillRect(30,30,50,50);
+
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>캔버스 태그</h1>
+        </div>
+        
+        <div class="row">
+            <canvas class="sketch" width="100%" height="200" ></canvas>
+        </div>
+    </div>
+</body>
+</html>

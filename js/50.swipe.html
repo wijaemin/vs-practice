@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/test.css"> -->
+
+    <!-- swiper cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        .swiper{
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            var swiper = new Swiper('.swiper', {
+            // direction: 'vertical', //슬라이드 방향
+            loop: true,//슬라이드 순환 설정
+
+            pagination: {
+                el: '.swiper-pagination',//적용할 영역
+                type : 'progressbar',//페이지네이션 유형
+                clickable : true, //페이지네이션 클릭가능여부
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+                hideOnClick:true,//클릭 시 숨김 처리
+            },
+
+            //스크롤바
+            // scrollbar: {
+            //     el: '.swiper-scrollbar',
+            // },
+
+            //자동재생
+            autoplay:{
+                delay:2000,//재생간격(ms)
+                pauseOnMouseEnter:true,//마우스 진입 시 멈춤
+            },
+
+            //이펙트(전환효과) 설정
+            effect: "cube",
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-600">
+        <div class="row">
+            <h1>이미지 슬라이더</h1>
+        </div>
+        <div class="row">
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <img src="./images/700.png" width="100%" height="100%">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/japan.jpg" width="100%" height="100%">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/success.png" width="100%" height="100%">
+                </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

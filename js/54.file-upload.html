@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        //목표 : 설정하기 버튼을 누르면 선택된 파일을 업로드 하고 이미지 변경
+        $(function(){
+            $(".btn-save").click(function(){
+                //파일 선택창을 JavaScript 형태로 불어와야함 (내장 API 사용)
+                //var input = document.querySelector(".file-chooser");//JS
+                var input = $(".file-chooser")[0];//JQuery
+
+                //input이 file일 경우에만 files라는 항목이 존재
+                
+                // console.log(input.files);
+                if(input.files.length == 0) return;
+
+                //비동기 동신
+                // form으로 파일을 전송할 때 multipart/form-data 설정을 했었다
+                // 비동기 통신일 때는 무슨 처리를 해야하는가?
+                // processData : false로 설정
+                // contentType : false로 설정
+
+                //FormData 객체를 만들어 파일을 추가한 뒤 전송
+                var form = new FormData();
+                //form.append("이름",데이터);
+                form.append("attach",input.files[0]);
+                $.ajax({
+                    url:"http://localhost:8080/restfile/upload",
+                    method:"post",
+                    processData : false,
+                    contentType : false,
+                    data : form,
+                    success:function(response){
+                        console.log(response);
+                        //이미지의 src를 바꾸는 코드
+                        $("img").attr("src","http://localhost:8080/restfile/download?attachNo="+response.attachNo);
+                    },
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <input type="file" class="file-chooser">
+    <button type="button" class="btn-save">설정하기</button>
+    <hr>
+    <img src="./images/꼬부기.png" width="200" height="200">
+</body>
+</html>

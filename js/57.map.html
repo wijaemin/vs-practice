@@ -87,6 +87,7 @@
                 
                 //템플릿을 불러와서 글자 설정한 뒤 인포윈도우로 추가
                 var template=$("#info-window-template").html();
+                //template =template.replace("???","바꿀값");//문자열처럼 처리
                 var result= $(template).find(".inner")//inner찾고
                             .text(text)//글자 주고
                             .parents(".outer")//outer로 돌아와서

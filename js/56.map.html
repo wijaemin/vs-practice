@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+
+    <style>
+        #map{
+            width:100%;
+            height:300px;
+        }
+    </style>
+    <!-- kakao map cdn -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7fef79afe4be1b4c6de341673d39292a"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            // var container = document.getElementById('map');
+            // var container= document.querySelector("#map");
+            var container=$("#map")[0];
+            var options = {
+                //지도 중심 좌표(위도-latitude, 경도-longitude)
+                center: new kakao.maps.LatLng(33.450701, 126.570667),
+                //지도 배율(zoom level : 1~14)
+                level:3
+            };
+            
+             //변수로 만들면 범위 제한이 걸린다
+            //var map = new kakao.maps.Map(container, options);
+
+            //범위 제한을 없애고 싶다면 외부에 만들거나 window에 추가한다
+            window.map = new kakao.maps.Map(container, options);
+
+            $(".btn-move").click(function(){
+
+                var lat=$(this).data("lat");
+                var lng=$(this).data("lng");
+                var moveLatLon = new kakao.maps.LatLng(lat, lng);
+
+                // map.setCenter(moveLatLon);
+                map.panTo(moveLatLon);
+            });
+        });
+        </script>
+    <script>
+    
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <h1>카카오 지도 다루기</h1>
+        </div>
+        <div class="row">
+            <div id="map"></div>
+        </div>
+        <div class="row">
+            <button class="btn btn-move" data-lat="37.55481213477879" data-lng="126.97039975955882">서울역</button>
+            <button class="btn btn-move" data-lat="35.114437518633714" data-lng="129.03948315537102">부산역</button>
+        </div>
+    </div>
+</body>
+</html>

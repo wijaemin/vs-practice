@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양식</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- 내가 만들 css 파일 -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/commons.css">
+    <link rel="stylesheet" type="text/css" href="./css/test.css">
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //로딩 아이콘 숨김
+            $(".btn-send").find(".fa-spinner").hide();
+            $(".cert-wrapper").hide();
+
+            //인증번호 보내기 버튼을 누르면
+            //서버로 비동기 통신을 보내ㅐ 인증 메일 발송 요청
+            $(".btn-send").click(function(){
+                var email=$("[name=email]").val();
+                if(email.length==0)return;
+
+                $(".btn-send").prop("disabled",true);
+                $(".btn-send").find(".fa-spinner").show();
+                $(".btn-send").find("span").text("인증번호 발송 중");
+                $.ajax({
+                    url:"http://localhost:8080/rest/cert/send",
+                    method:"post",
+                    data:{email:email},
+                    success:function(){
+                        $(".btn-send").prop("disabled",false);
+                        $(".btn-send").find(".fa-spinner").hide();
+                        $(".btn-send").find("span").text("인증번호 보내기");
+                        // window.alert("이메일 확인");
+
+                        $(".cert-wrapper").show();
+                    }
+                });
+            });
+
+            //확인 버튼을 누르면 이메일과 인증번호를 서버로 전달하여 검사
+            $(".btn-cert").click(function(){
+                var email=$("[name=email]").val();
+                var num= $(".cert-input").val();
+
+                if(email.length ==0 || num.length == 0) return;
+
+                $.ajax({
+                    url:"http://localhost:8080/rest/cert/check",
+                    method:"post",
+                    data:{
+                        email:email,
+                        num: num
+                    },
+                    success:function(response){
+                        if(response.result){//성공
+                            $(".cert-input").removeClass("success fail")
+                            .addClass("success");
+                            $(".btn-cert").prop("disabled",true);
+                            //상태객체에 상태 저장하는 코드
+                        }
+                        else{
+                            $(".cert-input").removeClass("success fail")
+                            .addClass("fail");
+                            //상태객체에 상태 저장하는 코드
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container w-500">
+        <div class="row">
+            <input type="email" class="form-input w-100" name="email" placeholder="이메일">
+        </div>
+        <div class="row">
+            <button class="btn btn-positive w-100 btn-send">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                <span>
+                    인증번호 보내기
+                </span>
+            </button>
+        </div>
+        <div class="cert-wrapper">
+            <div class="row">
+                <input type="text" class="cert-input form-input w-100">
+            </div>
+            <div class="row">
+                <button class="btn btn-positive w-100 btn-cert">확인</button>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
